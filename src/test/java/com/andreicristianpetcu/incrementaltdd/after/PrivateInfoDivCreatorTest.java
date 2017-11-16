@@ -1,4 +1,4 @@
-package com.andreicristianpetcu.destroytdd;
+package com.andreicristianpetcu.incrementaltdd.after;
 
 import java8.util.concurrent.CompletableFuture;
 import org.junit.Test;
