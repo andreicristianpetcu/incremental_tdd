@@ -34,9 +34,9 @@ public class BeforePrivateInfoDivCreatorTest {
         testSubject.generatePersonalInfoDiv(USER_ID, callbackMock);
 
         verify(beforePrivateInfoServiceMock).getSocialSecurityNumber(eq(USER_ID), socialSecurityNumberCallbackCaptor.capture());
-        verify(beforePrivateInfoServiceMock).getFullName(eq(USER_ID), fullNameCallbackCaptor.capture());
         Callback<String> socialSecurityNumberCallback = socialSecurityNumberCallbackCaptor.getValue();
         socialSecurityNumberCallback.done("123456789");
+        verify(beforePrivateInfoServiceMock).getFullName(eq(USER_ID), fullNameCallbackCaptor.capture());
         Callback<String> fullNameCallback = fullNameCallbackCaptor.getValue();
         fullNameCallback.done("Jane Doe");
 

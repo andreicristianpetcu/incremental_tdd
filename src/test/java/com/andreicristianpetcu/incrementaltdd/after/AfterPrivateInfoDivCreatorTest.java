@@ -22,8 +22,10 @@ public class AfterPrivateInfoDivCreatorTest {
 
     @Test
     public void generatePersonalInfoDiv(){
-        when(afterPrivateInfoServiceMock.getSocialSecurityNumber(USER_ID)).thenReturn(completedFuture("123456789"));
-        when(afterPrivateInfoServiceMock.getFullName(USER_ID)).thenReturn(completedFuture("Jane Doe"));
+        when(afterPrivateInfoServiceMock.getSocialSecurityNumber(USER_ID))
+                .thenReturn(completedFuture("123456789"));
+        when(afterPrivateInfoServiceMock.getFullName(USER_ID))
+                .thenReturn(completedFuture("Jane Doe"));
 
         CompletableFuture<String> divBody = testSubject.generatePersonalInfoDiv(USER_ID);
 
