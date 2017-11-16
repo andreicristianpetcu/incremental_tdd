@@ -3,7 +3,7 @@
 
     <groupId>com.andreicristianpetcu.tdd</groupId>
     <version>0.0.1-SNAPSHOT</version>
-    <artifactId>velocityclone</artifactId>
+    <artifactId>incremental-tdd</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
