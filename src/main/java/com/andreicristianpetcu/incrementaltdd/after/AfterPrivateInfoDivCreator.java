@@ -3,16 +3,16 @@ package com.andreicristianpetcu.incrementaltdd.after;
 import java8.util.concurrent.CompletableFuture;
 import java8.util.function.Function;
 
-public class PrivateInfoDivCreator {
+public class AfterPrivateInfoDivCreator {
 
-    private final PrivateInfoService privateInfoService;
+    private final AfterPrivateInfoService afterPrivateInfoService;
 
-    public PrivateInfoDivCreator(PrivateInfoService privateInfoService) {
-        this.privateInfoService = privateInfoService;
+    public AfterPrivateInfoDivCreator(AfterPrivateInfoService afterPrivateInfoService) {
+        this.afterPrivateInfoService = afterPrivateInfoService;
     }
 
     public CompletableFuture<String> generatePersonalInfoDiv(long userId, final String fullName) {
-        return privateInfoService
+        return afterPrivateInfoService
                 .getSocialSecurityNumber(userId)
                 .thenApply(new Function<String, String>() {
                     public String apply(String socialSecurityNumber) {

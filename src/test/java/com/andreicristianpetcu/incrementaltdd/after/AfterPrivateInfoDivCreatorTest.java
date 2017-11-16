@@ -12,17 +12,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PrivateInfoDivCreatorTest {
+public class AfterPrivateInfoDivCreatorTest {
 
     private static final long USER_ID = 42L;
     @InjectMocks
-    private PrivateInfoDivCreator testSubject;
+    private AfterPrivateInfoDivCreator testSubject;
     @Mock
-    private PrivateInfoService privateInfoServiceMock;
+    private AfterPrivateInfoService afterPrivateInfoServiceMock;
 
     @Test
     public void generatePersonalInfoDiv(){
-        when(privateInfoServiceMock.getSocialSecurityNumber(USER_ID)).thenReturn(completedFuture("123456789"));
+        when(afterPrivateInfoServiceMock.getSocialSecurityNumber(USER_ID)).thenReturn(completedFuture("123456789"));
 
         CompletableFuture<String> divBody = testSubject.generatePersonalInfoDiv(USER_ID, "Jane Doe");
 
