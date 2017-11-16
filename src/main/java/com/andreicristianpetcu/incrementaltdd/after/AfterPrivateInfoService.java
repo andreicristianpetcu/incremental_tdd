@@ -6,4 +6,8 @@ public class AfterPrivateInfoService {
     public CompletableFuture<String> getSocialSecurityNumber(long userId) {
         return null;
     }
+
+    public CompletableFuture<String> getFullName(long userId) {
+        return null;
+    }
 }

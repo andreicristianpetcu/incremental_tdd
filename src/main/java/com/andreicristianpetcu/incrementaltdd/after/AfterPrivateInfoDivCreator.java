@@ -1,7 +1,7 @@
 package com.andreicristianpetcu.incrementaltdd.after;
 
 import java8.util.concurrent.CompletableFuture;
-import java8.util.function.Function;
+import java8.util.function.BiFunction;
 
 public class AfterPrivateInfoDivCreator {
 
@@ -11,14 +11,18 @@ public class AfterPrivateInfoDivCreator {
         this.afterPrivateInfoService = afterPrivateInfoService;
     }
 
-    public CompletableFuture<String> generatePersonalInfoDiv(long userId, final String fullName) {
-        return afterPrivateInfoService
-                .getSocialSecurityNumber(userId)
-                .thenApply(new Function<String, String>() {
-                    public String apply(String socialSecurityNumber) {
-                        return computeDiv(socialSecurityNumber, fullName);
-                    }
-                });
+    CompletableFuture<String> generatePersonalInfoDiv(long userId) {
+        CompletableFuture<String> socialSecurityNumber = afterPrivateInfoService.getSocialSecurityNumber(userId);
+        CompletableFuture<String> fullName = afterPrivateInfoService.getFullName(userId);
+
+        CompletableFuture<String> generatedPersonalInfo = socialSecurityNumber.thenCombine(fullName,
+                new BiFunction<String, String, String>() {
+            public String apply(String socialSecurityNumber, String fullName) {
+                return computeDiv(socialSecurityNumber, fullName);
+            }
+        });
+
+        return generatedPersonalInfo;
     }
 
     private String computeDiv(String socialSecurityNumber, String fullName) {
