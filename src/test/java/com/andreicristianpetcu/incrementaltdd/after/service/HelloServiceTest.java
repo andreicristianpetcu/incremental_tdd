@@ -11,21 +11,21 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AfterHelloServiceTest {
+public class HelloServiceTest {
 
     private static final long USER_ID = 42L;
     @InjectMocks
-    private AfterHelloService testSubject;
+    private HelloService testSubject;
 
     @Mock
-    private AfterEnvironmentService afterEnvironmentService;
+    private EnvironmentService environmentService;
     @Mock
-    private AfterEmailProviderService afterEmailProviderServiceMock;
+    private EmailProviderService emailProviderServiceMock;
 
     @Test
     public void sayHello_returnsServerGreeting(){
-        when(afterEnvironmentService.getServerName()).thenReturn("fedora-server");
-        when(afterEmailProviderServiceMock.getEmail(USER_ID)).thenReturn(completedFuture("joe@example.com"));
+        when(environmentService.getServerName()).thenReturn("fedora-server");
+        when(emailProviderServiceMock.getEmail(USER_ID)).thenReturn(completedFuture("joe@example.com"));
 
         String responseMessage = testSubject.sayHello(USER_ID).join();
 
