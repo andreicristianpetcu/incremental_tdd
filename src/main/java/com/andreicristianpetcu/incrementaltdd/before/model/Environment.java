@@ -1,14 +1,19 @@
 package com.andreicristianpetcu.incrementaltdd.before.model;
 
+import java8.util.Optional;
+
 public class Environment {
 
-    Server server;
+    private Server server;
+
+    public Environment(){
+    }
 
     public Environment(Server server) {
         this.server = server;
     }
 
-    public Server getServer() {
-        return server;
+    public Optional<Server> getServer() {
+        return Optional.ofNullable(server);
     }
 }
