@@ -1,6 +1,5 @@
 package com.andreicristianpetcu.incrementaltdd.after.servlet;
 
-import com.andreicristianpetcu.incrementaltdd.after.service.AfterEnvironmentService;
 import com.andreicristianpetcu.incrementaltdd.after.service.AfterHelloService;
 import java8.util.concurrent.CompletableFuture;
 import org.junit.Test;
@@ -22,12 +21,13 @@ import static org.mockito.Mockito.when;
 public class AfterHelloPersonServletTest {
 
     private static final String USER_ID_PARAM = "42";
-    public static final String SERVICE_RESPONSE = "Hello response for user with id 42";
+    private static final String SERVICE_RESPONSE = "Hello response for user with id 42";
+
     @InjectMocks
     private AfterHelloPersonServlet testSubject;
 
     @Mock
-    private AfterHelloService afterHelloService;
+    private AfterHelloService afterHelloServiceMock;
 
     @Mock
     private HttpServletRequest httpServletRequestMock;
@@ -37,7 +37,7 @@ public class AfterHelloPersonServletTest {
     @Test
     public void service_delegatesToService() throws ServletException, IOException {
         when(httpServletRequestMock.getParameter(AfterHelloPersonServlet.USER_ID_PARAM_NAME)).thenReturn(USER_ID_PARAM);
-        when(afterHelloService.sayHello(42)).thenReturn(CompletableFuture.completedFuture(SERVICE_RESPONSE));
+        when(afterHelloServiceMock.sayHello(42)).thenReturn(CompletableFuture.completedFuture(SERVICE_RESPONSE));
 
         testSubject.service(httpServletRequestMock, httpServletResponseMock);
 
