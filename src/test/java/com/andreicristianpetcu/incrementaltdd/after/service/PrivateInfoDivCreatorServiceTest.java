@@ -1,5 +1,6 @@
 package com.andreicristianpetcu.incrementaltdd.after.service;
 
+import com.andreicristianpetcu.incrementaltdd.after.model.User;
 import java8.util.concurrent.CompletableFuture;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,10 +23,11 @@ public class PrivateInfoDivCreatorServiceTest {
 
     @Test
     public void generatePersonalInfoDiv(){
+        User user = new User(USER_ID);
         when(privateInfoServiceMock.getSocialSecurityNumber(USER_ID)).thenReturn(completedFuture("123456789"));
         when(privateInfoServiceMock.getFullName(USER_ID)).thenReturn(completedFuture("Jane Doe"));
 
-        String divBody = testSubject.generatePersonalInfoDiv(USER_ID).join();
+        String divBody = testSubject.generatePersonalInfoDiv(user).join();
 
         assertThat(divBody).isEqualTo("<div>JANE DOE - 123456789</div>");
     }

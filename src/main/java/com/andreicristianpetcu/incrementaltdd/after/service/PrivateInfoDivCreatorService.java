@@ -1,5 +1,6 @@
 package com.andreicristianpetcu.incrementaltdd.after.service;
 
+import com.andreicristianpetcu.incrementaltdd.after.model.User;
 import java8.util.concurrent.CompletableFuture;
 import java8.util.function.BiFunction;
 
@@ -11,9 +12,9 @@ public class PrivateInfoDivCreatorService {
         this.privateInfoService = privateInfoService;
     }
 
-    CompletableFuture<String> generatePersonalInfoDiv(long userId) {
-        CompletableFuture<String> socialSecurityNumber = privateInfoService.getSocialSecurityNumber(userId);
-        CompletableFuture<String> fullName = privateInfoService.getFullName(userId);
+    CompletableFuture<String> generatePersonalInfoDiv(User userId) {
+        CompletableFuture<String> socialSecurityNumber = privateInfoService.getSocialSecurityNumber(userId.getId());
+        CompletableFuture<String> fullName = privateInfoService.getFullName(userId.getId());
 
         CompletableFuture<String> generatedPersonalInfo = socialSecurityNumber.thenCombine(fullName,
                 new BiFunction<String, String, String>() {

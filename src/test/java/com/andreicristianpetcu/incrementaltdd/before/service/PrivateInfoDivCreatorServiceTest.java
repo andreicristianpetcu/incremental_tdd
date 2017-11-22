@@ -1,6 +1,7 @@
 package com.andreicristianpetcu.incrementaltdd.before.service;
 
 import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
+import com.andreicristianpetcu.incrementaltdd.before.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -11,6 +12,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrivateInfoDivCreatorServiceTest {
@@ -22,6 +24,8 @@ public class PrivateInfoDivCreatorServiceTest {
     private PrivateInfoService privateInfoServiceMock;
     @Mock
     private Callback<String> callbackMock;
+    @Mock
+    private User userMock;
     @Captor
     private ArgumentCaptor<Callback<String>> socialSecurityNumberCallbackCaptor;
     @Captor
@@ -29,7 +33,9 @@ public class PrivateInfoDivCreatorServiceTest {
 
     @Test
     public void generatePersonalInfoDiv(){
-        testSubject.generatePersonalInfoDiv(USER_ID, callbackMock);
+        when(userMock.getId()).thenReturn(USER_ID);
+
+        testSubject.generatePersonalInfoDiv(userMock, callbackMock);
 
         verify(privateInfoServiceMock).getSocialSecurityNumber(eq(USER_ID), socialSecurityNumberCallbackCaptor.capture());
         Callback<String> socialSecurityNumberCallback = socialSecurityNumberCallbackCaptor.getValue();
