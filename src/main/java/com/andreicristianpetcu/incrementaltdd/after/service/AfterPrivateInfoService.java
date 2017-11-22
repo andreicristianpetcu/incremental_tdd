@@ -1,4 +1,4 @@
-package com.andreicristianpetcu.incrementaltdd.after;
+package com.andreicristianpetcu.incrementaltdd.after.service;
 
 import java8.util.concurrent.CompletableFuture;
 

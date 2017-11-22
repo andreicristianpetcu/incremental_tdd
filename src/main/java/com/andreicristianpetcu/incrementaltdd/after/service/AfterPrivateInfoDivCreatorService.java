@@ -1,13 +1,13 @@
-package com.andreicristianpetcu.incrementaltdd.after;
+package com.andreicristianpetcu.incrementaltdd.after.service;
 
 import java8.util.concurrent.CompletableFuture;
 import java8.util.function.BiFunction;
 
-public class AfterPrivateInfoDivCreator {
+public class AfterPrivateInfoDivCreatorService {
 
     private final AfterPrivateInfoService afterPrivateInfoService;
 
-    public AfterPrivateInfoDivCreator(AfterPrivateInfoService afterPrivateInfoService) {
+    public AfterPrivateInfoDivCreatorService(AfterPrivateInfoService afterPrivateInfoService) {
         this.afterPrivateInfoService = afterPrivateInfoService;
     }
 

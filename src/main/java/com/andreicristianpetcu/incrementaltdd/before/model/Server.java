@@ -1,4 +1,4 @@
-package com.andreicristianpetcu.incrementaltdd.before;
+package com.andreicristianpetcu.incrementaltdd.before.model;
 
 public class Server {
 

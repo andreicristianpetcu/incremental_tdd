@@ -1,4 +1,6 @@
-package com.andreicristianpetcu.incrementaltdd.before;
+package com.andreicristianpetcu.incrementaltdd.before.service;
+
+import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
 
 public class BeforePrivateInfoService {
     public void getSocialSecurityNumber(long userId, Callback<String> callback) {

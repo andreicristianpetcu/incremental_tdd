@@ -1,6 +1,9 @@
-package com.andreicristianpetcu.before;
+package com.andreicristianpetcu.incrementaltdd.before.service;
 
-import com.andreicristianpetcu.incrementaltdd.before.*;
+import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
+import com.andreicristianpetcu.incrementaltdd.before.model.Environment;
+import com.andreicristianpetcu.incrementaltdd.before.service.BeforeEmailProviderService;
+import com.andreicristianpetcu.incrementaltdd.before.service.BeforeHelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
@@ -42,7 +45,6 @@ public class BeforeHelloServiceTest {
 
         verify(beforeEmailProviderServiceMock).getEmail(eq(42L), stringCallbackCaptor.capture());
         stringCallbackCaptor.getValue().done("joe@example.com");
-
         ServletOutputStream outputStream = httpServletResponseMock.getOutputStream();
         verify(outputStream).println("Hello joe@example.com and welcome on fedora-server");
     }

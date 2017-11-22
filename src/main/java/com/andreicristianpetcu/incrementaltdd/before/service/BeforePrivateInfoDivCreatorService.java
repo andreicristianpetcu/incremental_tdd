@@ -1,12 +1,14 @@
-package com.andreicristianpetcu.incrementaltdd.before;
+package com.andreicristianpetcu.incrementaltdd.before.service;
+
+import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
 
 import java.util.concurrent.atomic.AtomicReference;
 
-public class BeforePrivateInfoDivCreator {
+public class BeforePrivateInfoDivCreatorService {
 
     private final BeforePrivateInfoService beforePrivateInfoService;
 
-    public BeforePrivateInfoDivCreator(BeforePrivateInfoService beforePrivateInfoService) {
+    public BeforePrivateInfoDivCreatorService(BeforePrivateInfoService beforePrivateInfoService) {
         this.beforePrivateInfoService = beforePrivateInfoService;
     }
 

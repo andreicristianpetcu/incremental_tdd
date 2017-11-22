@@ -1,4 +1,6 @@
-package com.andreicristianpetcu.incrementaltdd.before;
+package com.andreicristianpetcu.incrementaltdd.before.servlet;
+
+import com.andreicristianpetcu.incrementaltdd.before.service.BeforeHelloService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

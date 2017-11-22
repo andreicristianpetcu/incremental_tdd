@@ -1,8 +1,8 @@
-package com.andreicristianpetcu.before;
+package com.andreicristianpetcu.incrementaltdd.before.service;
 
-import com.andreicristianpetcu.incrementaltdd.before.BeforePrivateInfoDivCreator;
-import com.andreicristianpetcu.incrementaltdd.before.BeforePrivateInfoService;
-import com.andreicristianpetcu.incrementaltdd.before.Callback;
+import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
+import com.andreicristianpetcu.incrementaltdd.before.service.BeforePrivateInfoDivCreatorService;
+import com.andreicristianpetcu.incrementaltdd.before.service.BeforePrivateInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -15,11 +15,11 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BeforePrivateInfoDivCreatorTest {
+public class BeforePrivateInfoDivCreatorServiceTest {
 
     private static final long USER_ID = 42L;
     @InjectMocks
-    private BeforePrivateInfoDivCreator testSubject;
+    private BeforePrivateInfoDivCreatorService testSubject;
     @Mock
     private BeforePrivateInfoService beforePrivateInfoServiceMock;
     @Mock

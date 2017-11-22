@@ -1,4 +1,7 @@
-package com.andreicristianpetcu.incrementaltdd.before;
+package com.andreicristianpetcu.incrementaltdd.before.service;
+
+import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
+import com.andreicristianpetcu.incrementaltdd.before.model.Environment;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

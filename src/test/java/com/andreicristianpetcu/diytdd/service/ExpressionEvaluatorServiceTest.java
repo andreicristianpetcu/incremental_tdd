@@ -1,4 +1,4 @@
-package com.andreicristianpetcu.tdd;
+package com.andreicristianpetcu.diytdd.service;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,13 +12,13 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 @Ignore
-public class ExpressionEvaluatorTest {
+public class ExpressionEvaluatorServiceTest {
 
     @InjectMocks
-    private ExpressionEvaluator testSubject;
+    private ExpressionEvaluatorService testSubject;
 
     @Mock
-    private VariablesEvaluator variablesEvaluatorMock;
+    private VariablesEvaluatorService variablesEvaluatorServiceMock;
 
     @Test
     public void evaluate_withNumber(){
@@ -68,7 +68,7 @@ public class ExpressionEvaluatorTest {
     @Test
     public void evaluate_withVariable(){
         String expressionToEvaluate = "5+currentYear";
-        when(variablesEvaluatorMock.evaluateVariable("currentYear")).thenReturn("2017");
+        when(variablesEvaluatorServiceMock.evaluateVariable("currentYear")).thenReturn("2017");
 
         long result = testSubject.evaluate(expressionToEvaluate);
 

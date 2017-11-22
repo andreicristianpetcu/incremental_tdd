@@ -1,9 +1,8 @@
-package com.andreicristianpetcu.tdd;
+package com.andreicristianpetcu.diytdd.service;
 
-import java8.util.concurrent.CompletableFuture;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-class VariablesEvaluator {
+class VariablesEvaluatorService {
 
     public String evaluateVariable(String variableName) {
         throw new NotImplementedException();

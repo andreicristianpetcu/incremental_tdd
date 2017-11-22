@@ -1,4 +1,4 @@
-package com.andreicristianpetcu.incrementaltdd.after;
+package com.andreicristianpetcu.incrementaltdd.after.service;
 
 import java8.util.concurrent.CompletableFuture;
 import org.junit.Test;
@@ -12,11 +12,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class AfterPrivateInfoDivCreatorTest {
+public class AfterPrivateInfoDivCreatorServiceTest {
 
     private static final long USER_ID = 42L;
     @InjectMocks
-    private AfterPrivateInfoDivCreator testSubject;
+    private AfterPrivateInfoDivCreatorService testSubject;
     @Mock
     private AfterPrivateInfoService afterPrivateInfoServiceMock;
 
