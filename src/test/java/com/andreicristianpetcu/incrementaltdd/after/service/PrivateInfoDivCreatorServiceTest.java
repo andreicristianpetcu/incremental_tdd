@@ -22,14 +22,12 @@ public class PrivateInfoDivCreatorServiceTest {
 
     @Test
     public void generatePersonalInfoDiv(){
-        when(privateInfoServiceMock.getSocialSecurityNumber(USER_ID))
-                .thenReturn(completedFuture("123456789"));
-        when(privateInfoServiceMock.getFullName(USER_ID))
-                .thenReturn(completedFuture("Jane Doe"));
+        when(privateInfoServiceMock.getSocialSecurityNumber(USER_ID)).thenReturn(completedFuture("123456789"));
+        when(privateInfoServiceMock.getFullName(USER_ID)).thenReturn(completedFuture("Jane Doe"));
 
-        CompletableFuture<String> divBody = testSubject.generatePersonalInfoDiv(USER_ID);
+        String divBody = testSubject.generatePersonalInfoDiv(USER_ID).join();
 
-        assertThat(divBody.join()).isEqualTo("<div>JANE DOE - 123456789</div>");
+        assertThat(divBody).isEqualTo("<div>JANE DOE - 123456789</div>");
     }
 
 }
