@@ -1,6 +1,5 @@
 package com.andreicristianpetcu.incrementaltdd.after.service;
 
-import com.andreicristianpetcu.incrementaltdd.after.servlet.AfterEmailProviderService;
 import java8.util.concurrent.CompletableFuture;
 import java8.util.function.Function;
 

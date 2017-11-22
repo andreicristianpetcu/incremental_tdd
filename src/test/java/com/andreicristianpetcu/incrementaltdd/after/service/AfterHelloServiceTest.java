@@ -1,6 +1,5 @@
 package com.andreicristianpetcu.incrementaltdd.after.service;
 
-import com.andreicristianpetcu.incrementaltdd.after.servlet.AfterEmailProviderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
