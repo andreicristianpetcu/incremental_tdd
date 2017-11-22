@@ -2,18 +2,18 @@ package com.andreicristianpetcu.incrementaltdd.before.service;
 
 import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
 
-public class BeforePrivateInfoDivCreatorService {
+public class PrivateInfoDivCreatorService {
 
-    private final BeforePrivateInfoService beforePrivateInfoService;
+    private final PrivateInfoService privateInfoService;
 
-    public BeforePrivateInfoDivCreatorService(BeforePrivateInfoService beforePrivateInfoService) {
-        this.beforePrivateInfoService = beforePrivateInfoService;
+    public PrivateInfoDivCreatorService(PrivateInfoService privateInfoService) {
+        this.privateInfoService = privateInfoService;
     }
 
     void generatePersonalInfoDiv(final long userId, final Callback<String> callback) {
-        beforePrivateInfoService.getSocialSecurityNumber(userId, new Callback<String>() {
+        privateInfoService.getSocialSecurityNumber(userId, new Callback<String>() {
             public void done(final String socialSecurityNumber) {
-                beforePrivateInfoService.getFullName(userId, new Callback<String>() {
+                privateInfoService.getFullName(userId, new Callback<String>() {
                     public void done(String fullName) {
                         String resultingDiv = computeDiv(socialSecurityNumber, fullName);
                         callback.done(resultingDiv);

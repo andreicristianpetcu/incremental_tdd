@@ -1,8 +1,6 @@
 package com.andreicristianpetcu.incrementaltdd.before.service;
 
 import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
-import com.andreicristianpetcu.incrementaltdd.before.service.BeforePrivateInfoDivCreatorService;
-import com.andreicristianpetcu.incrementaltdd.before.service.BeforePrivateInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
@@ -15,13 +13,13 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BeforePrivateInfoDivCreatorServiceTest {
+public class PrivateInfoDivCreatorServiceTest {
 
     private static final long USER_ID = 42L;
     @InjectMocks
-    private BeforePrivateInfoDivCreatorService testSubject;
+    private PrivateInfoDivCreatorService testSubject;
     @Mock
-    private BeforePrivateInfoService beforePrivateInfoServiceMock;
+    private PrivateInfoService privateInfoServiceMock;
     @Mock
     private Callback<String> callbackMock;
     @Captor
@@ -33,10 +31,10 @@ public class BeforePrivateInfoDivCreatorServiceTest {
     public void generatePersonalInfoDiv(){
         testSubject.generatePersonalInfoDiv(USER_ID, callbackMock);
 
-        verify(beforePrivateInfoServiceMock).getSocialSecurityNumber(eq(USER_ID), socialSecurityNumberCallbackCaptor.capture());
+        verify(privateInfoServiceMock).getSocialSecurityNumber(eq(USER_ID), socialSecurityNumberCallbackCaptor.capture());
         Callback<String> socialSecurityNumberCallback = socialSecurityNumberCallbackCaptor.getValue();
         socialSecurityNumberCallback.done("123456789");
-        verify(beforePrivateInfoServiceMock).getFullName(eq(USER_ID), fullNameCallbackCaptor.capture());
+        verify(privateInfoServiceMock).getFullName(eq(USER_ID), fullNameCallbackCaptor.capture());
         Callback<String> fullNameCallback = fullNameCallbackCaptor.getValue();
         fullNameCallback.done("Jane Doe");
 

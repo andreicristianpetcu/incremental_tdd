@@ -2,8 +2,6 @@ package com.andreicristianpetcu.incrementaltdd.before.service;
 
 import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
 import com.andreicristianpetcu.incrementaltdd.before.model.Environment;
-import com.andreicristianpetcu.incrementaltdd.before.service.BeforeEmailProviderService;
-import com.andreicristianpetcu.incrementaltdd.before.service.BeforeHelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.*;
@@ -20,11 +18,11 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BeforeHelloServiceTest {
+public class HelloServiceTest {
 
     private static final String USER_ID_PARAM = "42";
     @InjectMocks
-    private BeforeHelloService testSubject;
+    private HelloService testSubject;
     @Mock
     private HttpServletRequest httpServletRequestMock;
     @Mock(answer = Answers.RETURNS_DEEP_STUBS)
@@ -32,7 +30,7 @@ public class BeforeHelloServiceTest {
     @Mock(answer = Answers.RETURNS_DEEP_STUBS)
     private Environment environmentMock;
     @Mock
-    private BeforeEmailProviderService beforeEmailProviderServiceMock;
+    private EmailProviderService emailProviderServiceMock;
     @Captor
     private ArgumentCaptor<Callback<String>> stringCallbackCaptor;
 
@@ -43,7 +41,7 @@ public class BeforeHelloServiceTest {
 
         testSubject.processAsyncRequest();
 
-        verify(beforeEmailProviderServiceMock).getEmail(eq(42L), stringCallbackCaptor.capture());
+        verify(emailProviderServiceMock).getEmail(eq(42L), stringCallbackCaptor.capture());
         stringCallbackCaptor.getValue().done("joe@example.com");
         ServletOutputStream outputStream = httpServletResponseMock.getOutputStream();
         verify(outputStream).println("Hello joe@example.com and welcome on fedora-server");

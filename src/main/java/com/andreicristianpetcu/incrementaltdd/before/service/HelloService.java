@@ -7,25 +7,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class BeforeHelloService {
+public class HelloService {
 
     private HttpServletRequest httpServletRequest;
     private HttpServletResponse httpServletResponse;
     private Environment environment;
-    private BeforeEmailProviderService beforeEmailProviderService;
+    private EmailProviderService emailProviderService;
 
-    public BeforeHelloService(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Environment environment, BeforeEmailProviderService beforeEmailProviderService) {
+    public HelloService(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Environment environment, EmailProviderService emailProviderService) {
         this.httpServletRequest = httpServletRequest;
         this.httpServletResponse = httpServletResponse;
         this.environment = environment;
-        this.beforeEmailProviderService = beforeEmailProviderService;
+        this.emailProviderService = emailProviderService;
     }
 
     public void processAsyncRequest(){
         Long userId = Long.valueOf(httpServletRequest.getParameter("userId"));
         final String serverName = environment.getServer().getName();
 
-        beforeEmailProviderService.getEmail(userId, new Callback<String>() {
+        emailProviderService.getEmail(userId, new Callback<String>() {
             public void done(String email) {
                 try {
                     httpServletResponse.getOutputStream().println("Hello " + email + " and welcome on " + serverName);

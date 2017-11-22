@@ -2,7 +2,7 @@ package com.andreicristianpetcu.incrementaltdd.before.service;
 
 import com.andreicristianpetcu.incrementaltdd.before.common.Callback;
 
-class BeforeEmailProviderService {
+class EmailProviderService {
     void getEmail(Long userId, Callback<String> callback){
         
     }

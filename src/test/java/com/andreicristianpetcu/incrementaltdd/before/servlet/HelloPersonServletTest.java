@@ -1,6 +1,6 @@
 package com.andreicristianpetcu.incrementaltdd.before.servlet;
 
-import com.andreicristianpetcu.incrementaltdd.before.service.BeforeHelloService;
+import com.andreicristianpetcu.incrementaltdd.before.service.HelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,18 +13,18 @@ import java.io.IOException;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BeforeHelloPersonServletTest {
+public class HelloPersonServletTest {
 
     @InjectMocks
-    private BeforeHelloPersonServlet testSubject;
+    private HelloPersonServlet testSubject;
     @Mock
-    private BeforeHelloService beforeHelloService;
+    private HelloService helloService;
 
     @Test
     public void generatePersonalInfoDiv() throws ServletException, IOException {
         testSubject.service(null, null);
 
-        verify(beforeHelloService).processAsyncRequest();
+        verify(helloService).processAsyncRequest();
     }
 
 }
