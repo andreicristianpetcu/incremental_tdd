@@ -18,7 +18,8 @@ public class HelloService {
 
         CompletableFuture<String> helloResponse = emailResponse.thenApply(new Function<String, String>() {
             public String apply(String email) {
-                return "Hello " + email + " and welcome on " + environmentService.getServerName();
+                String serverName = environmentService.getServerName().orElse("unknown-server");
+                return "Hello " + email + " and welcome on " + serverName;
             }
         });
 

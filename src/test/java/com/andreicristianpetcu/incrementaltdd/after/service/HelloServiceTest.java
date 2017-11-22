@@ -1,5 +1,6 @@
 package com.andreicristianpetcu.incrementaltdd.after.service;
 
+import java8.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,7 +25,7 @@ public class HelloServiceTest {
 
     @Test
     public void sayHello_returnsServerGreeting(){
-        when(environmentService.getServerName()).thenReturn("fedora-server");
+        when(environmentService.getServerName()).thenReturn(Optional.of("fedora-server"));
         when(emailProviderServiceMock.getEmail(USER_ID)).thenReturn(completedFuture("joe@example.com"));
 
         String responseMessage = testSubject.sayHello(USER_ID).join();
