@@ -1,7 +1,5 @@
 package com.andreicristianpetcu.diytdd.service;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class ExpressionEvaluatorService {
 
     private final VariablesEvaluatorService variablesEvaluatorService;
@@ -10,8 +8,8 @@ public class ExpressionEvaluatorService {
         this.variablesEvaluatorService = variablesEvaluatorService;
     }
 
-    public long evaluate(String expressionToEvaluate) {
-        throw new NotImplementedException();
+    long evaluate(String expressionToEvaluate) {
+        return 1L;
     }
 
 }

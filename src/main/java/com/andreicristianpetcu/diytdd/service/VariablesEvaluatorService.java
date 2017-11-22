@@ -4,7 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 class VariablesEvaluatorService {
 
-    public String evaluateVariable(String variableName) {
+    String evaluateVariable(String variableName) {
         throw new NotImplementedException();
     }
 
