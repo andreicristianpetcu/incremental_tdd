@@ -37,7 +37,7 @@ public class BeforeHelloServiceTest {
     private ArgumentCaptor<Callback<String>> stringCallbackCaptor;
 
     @Test
-    public void generatePersonalInfoDiv() throws ServletException, IOException {
+    public void processAsyncRequest() throws ServletException, IOException {
         when(httpServletRequestMock.getParameter("userId")).thenReturn(USER_ID_PARAM);
         when(environmentMock.getServer().getName()).thenReturn("fedora-server");
 

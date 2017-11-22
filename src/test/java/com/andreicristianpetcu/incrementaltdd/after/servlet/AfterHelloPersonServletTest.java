@@ -35,7 +35,7 @@ public class AfterHelloPersonServletTest {
     private HttpServletResponse httpServletResponseMock;
 
     @Test
-    public void service_delegatesToService() throws ServletException, IOException {
+    public void service_delegatesToHelloService() throws ServletException, IOException {
         when(httpServletRequestMock.getParameter(AfterHelloPersonServlet.USER_ID_PARAM_NAME)).thenReturn(USER_ID_PARAM);
         when(afterHelloServiceMock.sayHello(42)).thenReturn(CompletableFuture.completedFuture(SERVICE_RESPONSE));
 
@@ -45,4 +45,3 @@ public class AfterHelloPersonServletTest {
     }
 
 }
-
