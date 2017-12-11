@@ -34,7 +34,7 @@ Try to look only at the test and understand what it is suppose to do. Ignore the
 The code in both "before" and "after" does the same thing. Now imagine you are going to start writing a new test. In which one would it be simpler? Before or after?
 You can see that the "after" implementation is pretty hard to understand also.
 
-Let's see what makes the code in the "after" a lot more testable:
+## Let's see what makes the code in the "after" a lot more testable:
  
  - Method input is mostly in it's parameters, not injected.
  
@@ -48,7 +48,7 @@ Let's see what makes the code in the "after" a lot more testable:
  
  - The async code looks as if it is synchronous. `PrivateInfoDivCreatorService` first gets the social social security number, then the full name and at the end it does something with both.
  
-What makes tests easier to write:
+## What makes tests easier to write:
 
  - The tests always check state, not behaviour. Avoid verify and argument captors.
  
