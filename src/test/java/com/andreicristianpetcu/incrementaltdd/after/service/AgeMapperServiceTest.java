@@ -30,14 +30,18 @@ public class AgeMapperServiceTest {
 
     @Test
     public void getAgeIsPresent() throws ServletException, IOException {
-        int age = testSubject.getAge(new User(EXISTING_USER_ID)).get();
+        User user = new User(EXISTING_USER_ID);
+
+        int age = testSubject.getAge(user).get();
 
         assertThat(age).isEqualTo(USER_AGE);
     }
 
     @Test
     public void getAgeIsMissing() throws ServletException, IOException {
-        boolean ageIsPresent = testSubject.getAge(new User(MISSING_USER_ID)).isPresent();
+        User user = new User(MISSING_USER_ID);
+
+        boolean ageIsPresent = testSubject.getAge(user).isPresent();
 
         assertFalse(ageIsPresent);
     }

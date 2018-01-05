@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 public class AgeMapperServiceTest {
 
     private static final Long EXISTING_USER_ID = 42L;
-    public static final int USER_AGE = 30;
+    private static final int USER_AGE = 30;
 
     private AgeMapperService testSubject;
     @Mock
