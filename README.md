@@ -1,7 +1,7 @@
 # TDD Intro
 A simple project to share ideas about TDD.
 
-TDD which means [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) is a software development process in which the tests are written before the implementation.
+TDD which means [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) is a software development process in which the [tests are written before the implementation](https://vimeo.com/255248348).
 
 ## Structure
 
