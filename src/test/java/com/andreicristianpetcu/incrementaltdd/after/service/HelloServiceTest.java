@@ -19,13 +19,13 @@ public class HelloServiceTest {
     private HelloService testSubject;
 
     @Mock
-    private EnvironmentService environmentService;
+    private EnvironmentService environmentServiceMock;
     @Mock
     private EmailProviderService emailProviderServiceMock;
 
     @Test
     public void sayHello_returnsServerGreeting(){
-        when(environmentService.getServerName()).thenReturn(Optional.of("fedora-server"));
+        when(environmentServiceMock.getServerName()).thenReturn(Optional.of("fedora-server"));
         when(emailProviderServiceMock.getEmail(USER_ID)).thenReturn(completedFuture("joe@example.com"));
 
         String responseMessage = testSubject.sayHello(USER_ID).join();
